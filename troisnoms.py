@@ -12,14 +12,24 @@ nom3= input("Entrez le nom 3")
 print(nom1, nom2, nom3)
 
 #vérifier s'ils sont dans l'ordre alpahbétique # 1 2 3
-var=[nom1,nom2,nom3]
-var2= var.copy()
-var.sort()
-var==var2
-if var==var2:
-    print("C'est trié")
-else:
-    print("C'est pas trié")
 
-print(var)
+if nom1<=nom2 <=nom3:
+    print("Les noms sont rangés dans l'ordre alphabiétique")
+else:
+    print("Les noms ne sont pas rangés dans l'ordre alphabiétique")
+
+
+def trie():
+    trie= []
+    trie.append(nom1)
+    trie.append(nom2)
+    trie.append(nom3)
+    trie.sort()
+    trie = ", ".join(trie)
+    print ("une fois trié cela donnerai :", trie)
+    
+trie()
+
+
+
 
