@@ -14,3 +14,6 @@ print(nombre)
 
 nombre *=nombre
 print(nombre)
+
+while nombre < 1:
+    nombre= int(input("J'ai dit entre nombre positif:"))
