@@ -1,0 +1,82 @@
+"""
+Recherche binaire:
+
+Cet algorithme de recherche est un peu plus compliqué 
+mais plus performant que la recherche linéaire
+car au pire des cas on ne cherchera que dans la moitié du tableau
+
+Il n'est utilisable qu'avec des tableaux triés.
+
+Le principe est de comparer l'élément à trouver avec l'élément 
+au milieu du tableau:
+
+    si le milieu du tableau est inférieur à l'element a trouver
+     on divise le tableau en 2 et on répéte la recherche 
+     sur cette moitié du tableau
+    si le milieu du tableau est supérieur à l'element a trouver 
+    on divise le tableau en 2 et on répéte la recherche sur cette moitié 
+    du tableau
+
+C'est un cas typique d'utilisation de la récursivité
+
+"""
+import random
+
+liste = []
+element = 42    # element a trouver dans le tableau
+
+# remplissage du tableau avec 500 valeurs aléatoires comprisent entre 0 et 1000
+for i in range(500):
+    liste.append(random.randrange(0, 1000))
+
+# fonction de tri de python
+liste.sort()
+# debutliste = 0
+# finliste = len(liste)-1
+# Fonction de recherche binaire, elle prend en paramètre l'élément a trouver,
+# le tableau dans lequel chercher, et les indice du début et de la fin du tableau.
+
+
+#déinir une fonction binaire pour trouver l'élément à trouver 
+def binarySearch(element, liste, debutliste, finliste):
+    
+    
+    #condition pour éviter la boucle infii si on ne trouve pas l'élément 
+    # si la fin de la liste est supérieur au début de la liste on continue (pass) sinon on sort du programme avec "return"
+    if finliste >= debutliste:
+        #diviser la liste en deux 
+        milieu_liste= debutliste + (finliste - debutliste)//2
+       #si l'élément du tableau est inférieur à l'élément trouve 
+        if liste[milieu_liste] == element:
+            return milieu_liste
+        
+        
+        elif liste[milieu_liste] > element:
+              #on apelle la récursivité la fonction sur la moitié inéfrieurer du tableau
+            return binarySearch(element, liste, debutliste, milieu_liste-1)
+        
+        else:
+              #sinon on appelle recursivement la fonction sur la moitié supérieure du tableau
+            return binarySearch (element, liste, milieu_liste+1, finliste )
+    else:
+         #si on a pas trouvé retournee -1
+        return "not find"
+        
+        
+        
+        
+position = binarySearch (element, liste , 0, len(liste)-1)
+if position != "not find":
+     print ("l'élément", element, "a été trouvé à la position", position) 
+else:
+     print("l'élement", element, "n'a pas été trouvé")   
+
+
+
+
+
+
+
+# TODO
+# 
+# 
