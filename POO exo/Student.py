@@ -53,8 +53,8 @@ class Student():
     #Ecrire une entrée pour que la personne puisse entrer son nom, note1 et note2 
     def entree(self):
         nom = input("Entrez votre nom : ")
-        note1 = int(input("Entrez votre première note : "))
-        note2 = int(input("Entrez votre seconde note : "))
+        note1 = float(input("Entrez votre première note : "))
+        note2 = float(input("Entrez votre seconde note : "))
         return nom,note1,note2
 
 
